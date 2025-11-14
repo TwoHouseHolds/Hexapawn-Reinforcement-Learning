@@ -1,0 +1,74 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+<title>Page Title</title>
+<style>
+    .chessboard{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .light {
+        background-color: #9c9c9c;
+    }
+    .dark {
+        background-color: #575757;
+    }
+
+    .piece-white {
+        color: #ffffff;
+        cursor: grab;
+    }
+    .piece-black {
+        color: #000000;
+        cursor: grab;
+    }
+
+    .square {
+        aspect-ratio: 1 / 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 100px;
+    }
+
+    .dragging {
+        opacity: 0.5;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="chessboard">
+    <div class="light square">
+        <div class="piece-black" draggable="true">&#9823</div>
+    </div>
+    <div class="dark square">
+        <div class="piece-black" draggable="true">&#9823</div>
+    </div>
+    <div class="light square">
+        <div class="piece-black" draggable="true">&#9823</div>
+    </div>
+
+    <div class="dark square"></div>
+    <div class="light square"></div>
+    <div class="dark square"></div>
+
+    <div class="light square">
+        <div class="piece-white" draggable="true">&#9823</div>
+    </div>
+    <div class="dark square">
+        <div class="piece-white" draggable="true">&#9823</div>
+    </div>
+    <div class="light square">
+        <div class="piece-white" draggable="true">&#9823</div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html> 
