@@ -3,45 +3,44 @@
 
 <head>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 
-<body>
+<body class="white-can-move">
+    <div class="game-container">
+        <div class="controls">
+            <!-- buttons / selection -->
+            <input type="button" class="button" disabled id="auswahlButton" value="Zufällige Auswahl"> <!-- auswahl -->
+            <label id="selection" style="color: white; text-align: center; font-size: 70px;">&#11044</label>
+            <input type="button" class="button" disabled id="durchfuehrenButton" value="Zug durchführen"> <!-- durchführen -->
+            
+            <!-- white space -->
+            <div style="color: white; font-size: 30px; text-align: center;">You found</div>
+            <div style="color: white; font-size: 30px; text-align: center;">Colins</div>
+            <div style="color: white; font-size: 30px; text-align: center;">easter egg</div>
+        </div>
 
-    <div class="chessboard">
+        <div class="chessboard">
+            <!-- arrows -->
+            <svg id="lines" class="arrow-layer" viewBox="0 0 300 300">
+            </svg>
 
-        <!-- arrows -->
-        <svg class="arrow-layer" viewBox="0 0 300 300">
-            <line class="arrow-line" x1="50" y1="250" x2="150" y2="150" style="stroke: darkmagenta;"/>
-            <line class="arrow-line" x1="150" y1="250" x2="150" y2="150" style="stroke: orange;"/>
-        </svg>
-        
-        <!-- row 3 -->
-        <div class="light square"><div class="piece-black">&#9823</div></div>
-        <div class="dark square"><div class="piece-black">&#9823</div></div>
-        <div class="light square"><div class="piece-black">&#9823</div></div>
+            <!-- row 3 -->
+            <div id="3a" class="light square"><div class="piece-black">&#9823</div></div>
+            <div id="3b" class="dark square"><div class="piece-black">&#9823</div></div>
+            <div id="3c" class="light square"><div class="piece-black">&#9823</div></div>
 
-        <!-- row 2 -->
-        <div class="dark square"></div>
-        <div class="light square"></div>
-        <div class="dark square"></div>
+            <!-- row 2 -->
+            <div id="2a" class="dark square"></div>
+            <div id="2b" class="light square"></div>
+            <div id="2c" class="dark square"></div>
 
-        <!-- row 1 -->
-        <div class="light square"><div class="piece-white">&#9823</div></div>
-        <div class="dark square"><div class="piece-white">&#9823</div></div>
-        <div class="light square"><div class="piece-white">&#9823</div></div>
-
-        <!-- white space -->
-        <div style="color: white; font-size: 30px; text-align: center;">You found</div>
-        <div style="color: white; font-size: 30px; text-align: center;">Colins</div>
-        <div style="color: white; font-size: 30px; text-align: center;">easter egg</div>
-
-        <!-- buttons / selection -->
-        <input type="button" value="Zufällige Auswahl" class="button">
-        <label style="color: darkmagenta; text-align: center; font-size: 70px;">&#11044</label>
-        <input type="button" value="Zug durchführen" class="button" disabled>
-
+            <!-- row 1 -->
+            <div id="1a" class="light square"><div class="piece-white" draggable="true">&#9823</div></div>
+            <div id="1b" class="dark square"><div class="piece-white" draggable="true">&#9823</div></div>
+            <div id="1c" class="light square"><div class="piece-white" draggable="true">&#9823</div></div>
+        </div>
     </div>
-
 </body>
 
 </html> 

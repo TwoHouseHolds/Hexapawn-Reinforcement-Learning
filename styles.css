@@ -1,7 +1,21 @@
 .light { background-color: #a0a0a0; }
 .dark  { background-color: #707070; }
-.piece-white { color: #ffffff; }
-.piece-black { color: #000000; }
+
+.piece-white { 
+    color: #ffffff;
+    cursor: not-allowed;
+}
+body.white-can-move .piece-white {
+    cursor: grab;
+}
+body.white-can-move .piece-white:active {
+    cursor: grabbing;
+}
+
+.piece-black { 
+    color: #000000;
+    cursor: not-allowed;
+}
 
 body {
     display: flex;
@@ -9,7 +23,7 @@ body {
     align-items: center;
 }
 
-.chessboard{
+.chessboard, .controls {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 400px;
