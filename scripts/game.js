@@ -2,7 +2,7 @@ let roundFinished = false;
 let whitesTurn = true;
 const colors = ['darkmagenta', 'orange', 'blue', 'chartreuse', 'deeppink'];
 
-const board = [
+let board = [
     [1, 1, 1],
     [0, 0, 0],
     [2, 2, 2]
@@ -75,8 +75,9 @@ function makeMove(startRow, startCol, targetRow, targetCol) {
     targetSquare.appendChild(targetPawn);
 
     if(hasWon(isColorWhite)) {
-        notification.innerHTML = (isColorWhite ? "White" : " Black") + " won!";
         roundFinished = true;
+        notification.value = (isColorWhite ? "White" : " Black") + " won! (press to restart)";
+        notification.style.visibility = 'visible';
     }
 }
 
@@ -104,3 +105,26 @@ function drawMoveLines(moves) {
     });
     lines.innerHTML = linesContent;
 }
+
+notification.addEventListener('click', () => {
+    notification.style.visibility = 'hidden';
+
+    board = [
+        [1, 1, 1],
+        [0, 0, 0],
+        [2, 2, 2]
+    ];
+    tile00.innerHTML = '<div class="piece-white" draggable="true">&#9823</div>';
+    tile01.innerHTML = '<div class="piece-white" draggable="true">&#9823</div>';
+    tile02.innerHTML = '<div class="piece-white" draggable="true">&#9823</div>';
+    tile10.innerHTML = '';
+    tile11.innerHTML = '';
+    tile12.innerHTML = '';
+    tile20.innerHTML = '<div class="piece-black">&#9823</div>';
+    tile21.innerHTML = '<div class="piece-black">&#9823</div>';
+    tile22.innerHTML = '<div class="piece-black">&#9823</div>';
+
+    initWhite();
+    whitesTurn = true;
+    roundFinished = false;
+});

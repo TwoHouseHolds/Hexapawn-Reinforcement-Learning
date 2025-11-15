@@ -1,28 +1,32 @@
-const draggablePieces = document.querySelectorAll('.piece-white');
 const squares = document.querySelectorAll('.square');
 let startSquare = null;
 
-// pieces: dragged
-draggablePieces.forEach(piece => {
-    // start
-    piece.addEventListener('dragstart', (e) => {
-        if(roundFinished || !whitesTurn) {
-            e.preventDefault(); // stops drag from starting
-            return;
-        }
-        
-        startSquare = piece.parentElement;
-        // fade out old position
-        setTimeout(() => piece.style.opacity = '0.5', 0);
-    });
+function initWhite() {
+    // pieces: dragged
+    const draggablePieces = document.querySelectorAll('.piece-white');
+    draggablePieces.forEach(piece => {
+        // start
+        piece.addEventListener('dragstart', (e) => {
+            if(roundFinished || !whitesTurn) {
+                e.preventDefault(); // stops drag from starting
+                return;
+            }
+            
+            startSquare = piece.parentElement;
+            // fade out old position
+            setTimeout(() => piece.style.opacity = '0.5', 0);
+        });
 
-    // end
-    piece.addEventListener('dragend', () => {
-        startSquare = null;
-        // fade in new posiotion
-        piece.style.opacity = '1';
+        // end
+        piece.addEventListener('dragend', () => {
+            startSquare = null;
+            // fade in new posiotion
+            piece.style.opacity = '1';
+        });
     });
-});
+}
+
+initWhite();
 
 // squares: dropped
 squares.forEach(square => {
