@@ -1,0 +1,40 @@
+ <!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <script src="./scripts/util.js" defer></script>
+    <script src="./scripts/game.js" defer></script>
+    <script src="./scripts/white.js" defer></script>
+    <script src="./scripts/black.js" defer></script>
+</head>
+
+<body class>
+    <div class="game-container">
+        <div class="chessboard">
+            <!-- row 3 -->
+            <div id="3a" class="light square"><div class="piece-black" draggable="true">&#9823</div></div>
+            <div id="3b" class="dark square"><div class="piece-black" draggable="true">&#9823</div></div>
+            <div id="3c" class="light square"><div class="piece-black" draggable="true">&#9823</div></div>
+
+            <!-- row 2 -->
+            <div id="2a" class="dark square"></div>
+            <div id="2b" class="light square"></div>
+            <div id="2c" class="dark square"></div>
+
+            <!-- row 1 -->
+            <div id="1a" class="light square"><div class="piece-white">&#9823</div></div>
+            <div id="1b" class="dark square"><div class="piece-white">&#9823</div></div>
+            <div id="1c" class="light square"><div class="piece-white">&#9823</div></div>
+        </div>
+
+        <div style="text-align: center;">
+            <br>
+            <p id="notification" style="visibility: hidden;">Test</p>
+            <br>
+            <input type="button" class="button" id="restart" style="visibility: hidden; font-size: 20px;" value="Restart">
+        </div>
+    </div>
+</body>
+
+</html> 
