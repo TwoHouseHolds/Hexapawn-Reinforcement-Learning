@@ -48,8 +48,7 @@ squares.forEach(square => {
             makeMove(startRow, startCol, targetRow, targetCol);
             
             if(!roundFinished) {
-                consideredMoves = allLegalMoves(false);
-                drawMoveLines(consideredMoves);         
+                prepareBlackMove();         
 
                 whitesTurn = false;
                 document.body.classList.remove('white-can-move');

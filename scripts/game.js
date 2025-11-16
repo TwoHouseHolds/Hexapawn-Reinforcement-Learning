@@ -26,7 +26,8 @@ const auswahlButton = document.getElementById('auswahlButton');
 const selectionCircle = document.getElementById('selection');
 const durchfuehrenButton = document.getElementById('durchfuehrenButton');
 const lines = document.getElementById('lines');
-const notification = document.getElementById('notification')
+const notification = document.getElementById('notification');
+const restart = document.getElementById('restart');
 
 function isLegalMove(startRow, startCol, targetRow, targetCol) {
     const isColorWhite = board[startRow][startCol] == 1;
@@ -47,21 +48,6 @@ function isLegalMove(startRow, startCol, targetRow, targetCol) {
     return isNormalMove || isCapture;
 }
 
-function allLegalMoves(isColorWhite) {
-    const legalMoves = [];
-    for (let iRow = 0; iRow < board.length; iRow++) {
-        for (let iCol = 0; iCol < board[iRow].length; iCol++) {
-            if(board[iRow][iCol] == (isColorWhite ? 1 : 2)) { // piece with right color
-                const targetRow = iRow + (isColorWhite ? 1 : -1);
-                if(isLegalMove(iRow, iCol, targetRow, iCol-1)) legalMoves.push([iRow, iCol, targetRow, iCol-1]); // capture 1
-                if(isLegalMove(iRow, iCol, targetRow, iCol)) legalMoves.push([iRow, iCol, targetRow, iCol]); // normal move
-                if(isLegalMove(iRow, iCol, targetRow, iCol+1)) legalMoves.push([iRow, iCol, targetRow, iCol+1]); // capture 2
-            }
-        }
-    }
-    return legalMoves;
-}
-
 function makeMove(startRow, startCol, targetRow, targetCol) {
     const isColorWhite = board[startRow][startCol] == 1;
     board[targetRow][targetCol] = board[startRow][startCol];
@@ -76,8 +62,16 @@ function makeMove(startRow, startCol, targetRow, targetCol) {
 
     if(hasWon(isColorWhite)) {
         roundFinished = true;
-        notification.value = (isColorWhite ? "White" : " Black") + " won! (press to restart)";
+
+        if(isColorWhite) {
+            losingBlackMovesWBoard.push(lastBlackMoveWBoard);
+            notification.innerHTML = "White wins!<br>The last black move has been removed.";
+        } else {
+            notification.innerHTML = " Black wins!";
+        }
+
         notification.style.visibility = 'visible';
+        restart.style.visibility = 'visible';
     }
 }
 
@@ -93,21 +87,10 @@ function hasWon(isColorWhite) {
     return oponentHasNoLegalMoves || iAmOnWinningRow;
 }
 
-function drawMoveLines(moves) {
-    let linesContent = '';
-    moves.forEach((move, index) => {
-        linesContent += '<line class="arrow-line" ' + 
-                        'x1="' + (50 + 100*move[1]) + '" ' + 
-                        'y1="' + (250 - 100*move[0]) + '" ' +
-                        'x2="' + (50 + 100*move[3]) + '" ' +
-                        'y2="' + (250 - 100*move[2]) + '" ' +
-                        'style="stroke: ' + colors[index] + ';"/>'
-    });
-    lines.innerHTML = linesContent;
-}
-
-notification.addEventListener('click', () => {
+// reset
+restart.addEventListener('click', () => {
     notification.style.visibility = 'hidden';
+    restart.style.visibility = 'hidden';
 
     board = [
         [1, 1, 1],
