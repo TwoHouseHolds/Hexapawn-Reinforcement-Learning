@@ -11,6 +11,8 @@ A browser-based implementation of 3x3 Hexapawn comparing a baseline random agent
     * **Matchup:** Human (White) vs. Learning AI (Black).
     * **Logic:** The AI uses a negative reinforcement model (MENACE-style), banning moves that lead to losses to improve over time.
 
+    ![alt text](/z_readme%20images/image.png)
+
 ## Game Rules
 
 * **Movement:** Pawns move one square forward to empty tiles.
@@ -27,3 +29,7 @@ A browser-based implementation of 3x3 Hexapawn comparing a baseline random agent
 3.  **For Random Bot:** You play as Black using drag-and-drop; the Bot plays White automatically.
 4.  **For RL Bot:** You play as White; the Bot plays Black.
 5.  Click the "Restart" button to reset the board and playing state.
+
+## License/Copyright
+© 2025 Colin Traub
+All Rights Reserved.
