@@ -2,6 +2,8 @@
 
 A browser-based implementation of 3x3 Hexapawn comparing a baseline random agent against a reinforcement learning agent.
 
+![alt text](/z_readme%20images/image.png)
+
 ## Project Structure
 
 * **`Tutorial Random Bot/`**
@@ -10,8 +12,6 @@ A browser-based implementation of 3x3 Hexapawn comparing a baseline random agent
 * **`Reinforcement Learning/`**
     * **Matchup:** Human (White) vs. Learning AI (Black).
     * **Logic:** The AI uses a negative reinforcement model (MENACE-style), banning moves that lead to losses to improve over time.
-
-    ![alt text](/z_readme%20images/image.png)
 
 ## Game Rules
 
